@@ -20,24 +20,44 @@ void setup () {
   hpImg = loadImage("img/hp.png");
   treasureImg = loadImage("img/treasure.png");
   
+  // the position of enemy
+  x = 0;
   y = floor(random(450));
+  
+  // the size of treasure
   a = floor(random(610));
-  b = floor(random(430));
+  b = floor(random(430)); 
+  
+  // the width of hp
   w = floor(random(203));
+  
+  // the initial position of background
+  z = 0;
 }
 
 void draw() {
-  image(background2Img,z,0);
-  image(background1Img,z+640,0);
+  
+  //background
+  image(background1Img,z,0);
+  image(background2Img,z-640,0);
+  
+  // fighter
   image(shipImg,580,240);
+  
+  // enemy
   image(enemyImg,x,y);
+  
+  // treasure
   image(treasureImg,a,b);
+  
+  // hp
   fill(#ff0000);
   rectMode(CORNER);
   rect(34,22,w,20);
   image(hpImg,30,20);
-  x += 3;
+  
+  x += 2;
   x %= 640;
-  z -= 1;
+  z += 1;
   z %= 640;
 }
