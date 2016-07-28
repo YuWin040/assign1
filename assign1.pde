@@ -12,7 +12,9 @@ int z; // bg's position
 
 
 void setup () {
+  
   size(640,480) ;
+  
   shipImg = loadImage("img/fighter.png");
   background1Img = loadImage("img/bg1.png");
   background2Img = loadImage("img/bg2.png");
@@ -38,8 +40,8 @@ void setup () {
 void draw() {
   
   //background
-  image(background1Img,z,0);
-  image(background2Img,z-640,0);
+  image(background1Img,z % 1280 -640,0);
+  image(background2Img,(z+640) % 1280 -640,0);
   
   // fighter
   image(shipImg,580,240);
@@ -59,5 +61,5 @@ void draw() {
   x += 2;
   x %= 640;
   z += 1;
-  z %= 640;
+  
 }
